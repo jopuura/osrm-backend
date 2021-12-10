@@ -16,14 +16,15 @@ namespace json
 // Make sure we don't have inf and NaN values
 template <typename T> T clamp_float(T d)
 {
-    if (std::isnan(d) || std::numeric_limits<T>::infinity() == d)
+    // Hacking
+    if (std::isnan(d)) // || std::numeric_limits<T>::infinity() == d)
     {
         return std::numeric_limits<T>::max();
     }
-    if (-std::numeric_limits<T>::infinity() == d)
-    {
-        return std::numeric_limits<T>::lowest();
-    }
+    //if (-std::numeric_limits<T>::infinity() == d)
+    //{
+    //   return std::numeric_limits<T>::lowest();
+    //}
 
     return d;
 }
