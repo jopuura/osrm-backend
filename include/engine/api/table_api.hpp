@@ -130,8 +130,7 @@ class TableAPI final : public BaseAPI
             distances = MakeDistanceTable(fb_result, tables.second);
         }
 
-        bool have_speed_cells =
-            parameters.fallback_speed != INVALID_FALLBACK_SPEED && parameters.fallback_speed > 0;
+        bool have_speed_cells = parameters.fallback_speed > 0;
         flatbuffers::Offset<flatbuffers::Vector<uint32_t>> speed_cells;
         if (have_speed_cells)
         {
@@ -220,7 +219,7 @@ class TableAPI final : public BaseAPI
                 MakeDistanceTable(tables.second, number_of_sources, number_of_destinations);
         }
 
-        if (parameters.fallback_speed != INVALID_FALLBACK_SPEED && parameters.fallback_speed > 0)
+        if (parameters.fallback_speed > 0)
         {
             response.values["fallback_speed_cells"] = MakeEstimatesTable(fallback_speed_cells);
         }
