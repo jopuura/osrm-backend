@@ -17,10 +17,10 @@ namespace json
 template <typename T> T clamp_float(T d)
 {
     // Hacking
-    if (std::isnan(d)) // || std::numeric_limits<T>::infinity() == d)
-    {
-        return std::numeric_limits<T>::max();
-    }
+    //if (std::isnan(d)) // || std::numeric_limits<T>::infinity() == d)
+    //{
+    //    return std::numeric_limits<T>::max();
+    //}
     //if (-std::numeric_limits<T>::infinity() == d)
     //{
     //   return std::numeric_limits<T>::lowest();
